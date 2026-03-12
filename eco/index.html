@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Event</title>
+
+<style>
+
+/* 여기 CSS 넣기 */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000000;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* 전체 랜딩 영역 */
+.event-page {
+  position: relative;
+  width: min(100vw, 420px);
+  aspect-ratio: 828 / 1792;
+  margin: 0 auto;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* 배경 */
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+}
+
+/* 캡슐 영상 */
+.capsule-video {
+  position: absolute;
+  top: 7%;
+  width: 100%;
+ 
+  overflow: hidden;
+  z-index: 2;
+
+  /* 라운드 제거 */
+  border-radius: 0;
+
+  opacity: 0;
+  transform: scale(0.96);
+  animation: videoIn 0.1s ease forwards;
+}
+
+.capsule-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(0.99) brightness(0.99);
+}
+
+/* 텍스트 */
+.text-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(14px);
+  opacity: 0;
+  display: block;
+}
+
+/* 텍스트 크기 축소 */
+.title-1 {
+  top: 10.2%;
+  width: 45%;
+  animation: fadeUp 0.55s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.title-2 {
+  top: 14.7%;
+  width: 66%;
+  animation: fadeUp 0.55s ease forwards;
+  animation-delay: 1.0s;
+}
+
+.title-3 {
+  top: 20.2%;
+  width: 78%;
+  animation: fadeUp 0.55s ease forwards;
+  animation-delay: 1.4s;
+}
+
+/* 버튼 */
+.cta-btn {
+  position: absolute;
+  left: 3.8%;
+  bottom: 22%;
+  width: 92.4%;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 4;
+
+  /* 기본 버튼 스타일 제거 */
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  animation: ctaIn 0.6s ease forwards;
+  animation-delay: 1.8s;
+}
+
+.cta-btn img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+}
+
+.cta-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+@keyframes videoIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes ctaIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+</style>
+</head>
+
+
+<body>
+
+    <div class="event-page">
+        <img src="./assets/bg.png" class="bg" alt="" />
+      
+        <div class="capsule-video">
+          <video autoplay muted loop playsinline>
+            <source src="./assets/capsule.mp4" type="video/mp4" />
+          </video>
+        </div>
+      
+        <div class="text-layer">
+          <img src="./assets/title-1.png" class="title title-1" alt="오픈 1주년 기념 EVENT" />
+          <img src="./assets/title-2.png" class="title title-2" alt="꽝없는 100%" />
+          <img src="./assets/title-3.png" class="title title-3" alt="행운의 뽑기이벤트" />
+        </div>
+      
+        <button class="cta-btn" type="button" aria-label="랜덤 뽑기 도전하고 쿠폰 받기">
+          <img src="./assets/cta-btn.png" alt="" />
+        </button>
+      </div>
+
+<script>
+
+/* JS 필요하면 여기 */
+
+</script>
+
+</body>
+</html>
